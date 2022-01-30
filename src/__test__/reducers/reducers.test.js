@@ -1,24 +1,30 @@
-import reducer from '../../reducers';
-import ProductMock from '../../__mocks__/ProductMock';
+import reducer from "../../reducers";
+import ProductMock from "../../__mocks__/productMock";
+import ProviderMock from '../../__mocks__/productMock';
 
-describe('Reducers', () => {
-  test('Retornar initial State', () => {
-    expect(reducer({}, '')).toEqual({});
+describe('reducer', () => {
+  test('retorna estado inicial', () => {
+    const state = ProviderMock;
+    expect(reducer({}, {})).toEqual({});
   });
-  test('ADD_TO_CART', () => {
+
+  test('add to cart', () => {
     const initialState = {
-      cart: [],
+      cart: []
     };
-    const payload = ProductMock;
+
+
+    const payload = ProviderMock;
     const action = {
       type: 'ADD_TO_CART',
-      payload,
+      payload
     };
+
+
     const expected = {
-      cart: [
-        ProductMock,
-      ],
+      cart: [ProductMock]
     };
+
     expect(reducer(initialState, action)).toEqual(expected);
   });
 });
